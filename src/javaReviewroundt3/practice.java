@@ -9,25 +9,17 @@ public class practice {
 
 	public static void main(String[] args) {
 
-		String s[] = { "java", "c", "money", "more money", "more money", "java" };
+		DuplicateWords("hi hi hihi hi hih ih hi hi hi hi hi hi ");
+		duplicatewordsSet("hello hello helllo hello");
+		using2forLoops("hello usinf 2 for loops 2 for loops");
 
-		for (int i = 0; i < s.length; i++) {
-			for (int j = i + 1; j < s.length; j++) {
-				if (s[i].equals(s[j])) {
-					System.out.println("duplicate using 2 for loops: " + s[i]);
-				}
-			}
-		}
+	}
 
-		Set<String> words = new HashSet<String>();
-		for (String word : s) {
-			if (words.add(word) == false) {
-				System.out.println("duplicate using set: " + word);
-			}
-		}
+	public static void DuplicateWords(String outputString) {
 
+		String words[] = outputString.split("\\s");
 		Map<String, Integer> wordCountMap = new HashMap<String, Integer>();
-		for (String word : s) {
+		for (String word : words) {
 			if (wordCountMap.containsKey(word)) {
 				wordCountMap.put(word, wordCountMap.get(word) + 1);
 			} else {
@@ -41,7 +33,29 @@ public class practice {
 				System.out.println(word + ":" + wordCountMap.get(word));
 			}
 		}
+	}
 
+	public static void duplicatewordsSet(String setOUtput) {
+		String words[] = setOUtput.split(" ");
+
+		Set<String> duplicatewords = new HashSet<String>();
+		for (String word : words) {
+			if (duplicatewords.add(word) == false) {
+				System.out.println("duplicate set word: " + word);
+			}
+		}
+
+	}
+	
+	public static void using2forLoops(String forLoopString) {
+		String words[] = forLoopString.split(" ");
+		for(int i = 0 ; i < words.length; i++) {
+			for(int j = i+1;j<words.length;j++) {
+				if (words[i].equals(words[j])) {
+					System.out.println("for loop duplicate is: "+words[i]);
+				}
+			}
+		}
 	}
 
 }
